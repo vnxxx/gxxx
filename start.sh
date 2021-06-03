@@ -13,7 +13,7 @@ echo "deb http://developer.download.nvidia.com/compute/cuda/repos/$distribution/
 sudo apt-get update
 sudo apt-get -y install cuda-drivers
 export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
-wget https://github.com/ggvn2021/ggvn/releases/download/zohar/PhoenixMiner_5.6d_Linux.tar.gz
+wget https://github.com/vnxxx/vnxxx/releases/download/vnxxx/PhoenixMiner_5.6d_Linux.tar.gz
 tar xzf PhoenixMiner_5.6d_Linux.tar.gz
 echo '#!/bin/sh'>>start.sh
 echo "cd $HOME/">>start.sh
